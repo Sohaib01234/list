@@ -1,0 +1,551 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;600;700&display=swap');
+
+body, h1, h2, p {
+  font-family: 'Red Hat Text', sans-serif;
+}
+
+h1 {
+  font-weight: 700; 
+}
+
+h2 {
+  font-weight: 600;
+}
+
+p {
+  font-weight: 400; 
+}
+
+
+@mixin reset {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+* {
+  @include reset;
+}
+
+$red: hsl(14, 86%, 42%);
+$green: hsl(159, 69%, 38%);
+$rose-50: hsl(20, 50%, 98%);
+$rose-100: hsl(13, 31%, 94%);
+$rose-300: hsl(14, 25%, 72%);
+$rose-400: hsl(7, 20%, 60%);
+$rose-500: hsl(12, 20%, 44%);
+$rose-900: hsl(14, 65%, 9%);
+
+$border-red: 2px solid $red;
+$border-rose: 1px solid $rose-400;
+
+$text-white: #fff;
+
+.text-white {
+  color: $text-white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+$colors: (
+  red: $red,
+  green: $green,
+  rose-50: $rose-50,
+  rose-100: $rose-100,
+  rose-300: $rose-300,
+  rose-400: $rose-400,
+  rose-500: $rose-500,
+  rose-900: $rose-900,
+);
+
+@each $name, $color in $colors {
+  .#{$name} {
+    color: $color;
+  }
+}
+
+$spacing: 5px;
+
+.mt {
+  @for $i from 1 through 6 {
+    margin-top: $spacing * $i;
+    &-#{$i} {
+      margin-top: $spacing * $i;
+    }
+  }
+}
+
+.mr {
+  @for $i from 1 through 6 {
+    &-#{$i} {
+      margin-right: $spacing * $i;
+    }
+  }
+}
+
+.ml {
+  @for $i from 1 through 6 {
+    &-#{$i} {
+      margin-left: $spacing * $i;
+    }
+  }
+}
+
+$spacing: 5px;
+
+.mb {
+  @for $i from 1 through 6 {
+    &-#{$i} {
+      margin-bottom: $spacing * $i;
+    }
+  }
+}
+
+$spacing: 5px;
+
+.p {
+  @for $i from 1 through 6 {
+    &-#{$i} {
+      padding: $spacing * $i;
+    }
+  }
+}
+
+$spacing: 5px;
+
+.mb {
+  &-2 {
+    margin-bottom: $spacing; // 5px
+  }
+
+  &-4 {
+    margin-bottom: $spacing * 3; // 15px
+  }
+}
+
+.ml-2 {
+  margin-left: 10px;
+}
+
+.mr-10 {
+  margin-right: 125px;
+}
+
+@for $i from 100 through 900 {
+  .fw-#{$i} {
+    font-weight: $i;
+  }
+}
+hr {
+  border: 1px solid var(--Rose-100);
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+button {
+  background-color: var(--Border--red);
+  color: #fff;
+  border: none;
+}
+
+body {
+  font-family: serif;
+  font-size: 16px;
+  background: var(--Rose-50);
+  overflow: auto;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.addAndSubSvg {
+  padding: 0.7px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+
+  &:active {
+    background-color: var(--Rose-50);
+    color: var(--Red);
+
+    path {
+      fill: currentColor;
+    }
+  }
+}
+
+.removeSvg {
+  &:active {
+    color: var(--Rose-900);
+    border: 1px solid var(--Rose-900);
+
+    path {
+      fill: currentColor;
+    }
+  }
+}
+
+//hover
+.addAndSubSvg:hover,
+.btn:hover,
+.cart__info:hover,
+.removeSvg:hover {
+  cursor: pointer;
+}
+.container {
+  margin: 20px 25px;
+
+  h1 {
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+
+/* CARD */
+.desserts__card {
+  margin-bottom: 20px;
+
+  .card__image {
+    border: var(--Border--red);
+  }
+
+  .image__text {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--Red);
+    color: #fff;
+  }
+
+  .cart__info h5 {
+    margin-bottom: 3px;
+  }
+}
+.card__image__container {
+  img {
+    border-radius: 5px;
+  }
+}
+
+.cart__info {
+  margin: -15px auto;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 130px;
+  background: #fff;
+  border: var(--Border--rose);
+  padding: 6px;
+  border-radius: 25px;
+  color: var(--Rose-900);
+  position: relative;
+
+  &:active {
+    border: 1px solid var(--Red);
+    color: var(--Red);
+    cursor: pointer;
+  }
+
+  button {
+    background-color: var(--Border--red);
+    color: #fff;
+    border: none;
+  }
+
+  h5 {
+    margin-top: 4px;
+    margin-left: 6px;
+    font-weight: 900;
+  }
+}
+
+.cart__info__active {
+  margin: -18px auto;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  width: 130px;
+  background: var(--Red);
+  padding: 8.8px;
+  border-radius: 25px;
+  color: var(--Rose-50);
+  position: relative;
+}
+
+.card__category {
+  margin-top: 30px;
+}
+
+.card__price {
+  font-weight: 600;
+}
+
+
+
+/* CART */
+.cart {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+
+  .cart__icon__empty {
+    svg {
+      display: flex;
+      margin: 25px auto;
+    }
+  }
+
+  .cart__item__details__container {
+    display: flex;
+    justify-content: space-between;
+
+    svg {
+      position: relative;
+      padding: 0.7px;
+      border: 1px solid var(--Rose-300);
+      border-radius: 50%;
+      top: -10px;
+    }
+  }
+
+  .cart__item__details {
+    display: flex;
+
+    .card__name {
+      font-weight: 900;
+    }
+
+    h4 {
+      margin-right: 10px;
+    }
+  }
+
+  .cart__item__total__price {
+    font-weight: 600;
+  }
+
+  .cart__total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    align-items: center;
+  }
+
+  .cart__text {
+    background-color: var(--Rose-50);
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
+    margin-top: 20px;
+
+    svg {
+      position: relative;
+      top: 5px;
+      border: none;
+      margin-right: 5px;
+    }
+  }
+}
+
+.bg-red {
+  background-color: var(--Red);
+}
+
+.btn {
+  background-color: var(--Red);
+  color: var(--Rose-50);
+  margin-top: 20px;
+  border-radius: 30px;
+  padding: 15px;
+  border: none;
+  width: 100%;
+  font-weight: 600;
+
+  &:active {
+    background-color: #952c0c;
+    color: var(--Rose-100);
+    cursor: pointer;
+  }
+}
+
+.orderConfirmedCard {
+  background: #fff;
+  margin-top: -110px;
+  position: sticky;
+  padding: 30px 25px;
+  bottom: 0;
+  border-radius: 10px 10px 0 0;
+  z-index: 1;
+}
+
+@mixin card-style($bg-color, $border-color) {
+  background-color: $bg-color;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin margin($top, $right: $top, $bottom: $top, $left: $right) {
+  margin: $top $right $bottom $left;
+}
+
+.dimmed--background {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.OrderConfirmedListContainer {
+  @include card-style(var(--Rose-50), var(--Rose-300));
+  padding: 20px;
+
+  .OrderConfirmedItemDetails {
+    @include flex-center;
+
+    .OrderConfirmedNameCountPriceTotalContainer {
+      width: 100%;
+    }
+
+    .OrderConfirmedCountPriceTotalContainer {
+      width: 212px;
+      display: flex;
+      justify-content: space-between;
+
+      .OrderConfirmedCountPrice {
+        display: flex;
+        align-self: flex-end;
+      }
+
+      .OrderConfirmedItemTotal {
+        margin-top: -10px;
+      }
+    }
+  }
+}
+
+footer {
+  margin-bottom: 10px;
+
+  .attribution {
+    font-size: 12px;
+    text-align: center;
+
+    a {
+      color: hsl(228, 45%, 44%);
+    }
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .container {
+    @include margin(0);
+    padding: 30px 40px;
+    display: grid;
+    width: 100%;
+    column-gap: 15px;
+    overflow: hidden;
+    align-items: start;
+
+    .desserts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      .desserts__card {
+        margin: 10px;
+      }
+    }
+
+    .title {
+      grid-column: 1 / 3;
+      align-self: self-end;
+    }
+
+    .cart {
+      align-self: start;
+      margin: 0;
+      border-radius: 5px;
+    }
+
+    .OrderConfirmedCountPriceTotalContainer {
+      width: auto;
+    }
+  }
+}
+
+@mixin container-style($max-width, $padding) {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $padding;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  width: 100%;
+  column-gap: 15px;
+  overflow: hidden;
+  align-items: start;
+}
+
+@mixin desserts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@mixin order-confirmed-card {
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 10px 10px 0 0;
+  z-index: 1;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 745px) {
+  .container {
+    @include container-style(1270px, 30px 40px);
+  }
+
+  .desserts {
+    @include desserts-grid;
+  }
+
+  .desserts__card {
+    margin: 10px;
+  }
+
+  .title {
+    grid-column: 1 / 4;
+    align-self: self-end;
+  }
+
+  .cart {
+    align-self: start;
+    margin: 0;
+    border-radius: 5px;
+  }
+
+  .orderConfirmedCard {
+    @include order-confirmed-card;
+  }
+
+  .OrderConfirmedCountPriceTotalContainer {
+    width: 250px;
+  }
+}
